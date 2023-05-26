@@ -1,0 +1,51 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2026
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DiskModWD", "DiskModWD.vcxproj", "{1E3CA2CC-A3F6-412B-83A4-901A45B85C09}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|ARM = Debug|ARM
+		Debug|ARM64 = Debug|ARM64
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|ARM = Release|ARM
+		Release|ARM64 = Release|ARM64
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1E3CA2CC-A3F6-412B-83A4-901A45B85C09}.Debug|ARM.ActiveCfg = Debug|ARM
+		{1E3CA2CC-A3F6-412B-83A4-901A45B85C09}.Debug|ARM.Build.0 = Debug|ARM
+		{1E3CA2CC-A3F6-412B-83A4-901A45B85C09}.Debug|ARM64.ActiveCfg = Debug|ARM64
+		{1E3CA2CC-A3F6-412B-83A4-901A45B85C09}.Debug|ARM64.Build.0 = Debug|ARM64
+		{1E3CA2CC-A3F6-412B-83A4-901A45B85C09}.Debug|x64.ActiveCfg = Debug|x64
+		{1E3CA2CC-A3F6-412B-83A4-901A45B85C09}.Debug|x64.Build.0 = Debug|x64
+		{1E3CA2CC-A3F6-412B-83A4-901A45B85C09}.Debug|x86.ActiveCfg = Debug|Win32
+		{1E3CA2CC-A3F6-412B-83A4-901A45B85C09}.Debug|x86.Build.0 = Debug|Win32
+		{1E3CA2CC-A3F6-412B-83A4-901A45B85C09}.Release|ARM.ActiveCfg = Release|ARM
+		{1E3CA2CC-A3F6-412B-83A4-901A45B85C09}.Release|ARM.Build.0 = Release|ARM
+		{1E3CA2CC-A3F6-412B-83A4-901A45B85C09}.Release|ARM64.ActiveCfg = Release|ARM64
+		{1E3CA2CC-A3F6-412B-83A4-901A45B85C09}.Release|ARM64.Build.0 = Release|ARM64
+		{1E3CA2CC-A3F6-412B-83A4-901A45B85C09}.Release|x64.ActiveCfg = Release|x64
+		{1E3CA2CC-A3F6-412B-83A4-901A45B85C09}.Release|x64.Build.0 = Release|x64
+		{1E3CA2CC-A3F6-412B-83A4-901A45B85C09}.Release|x86.ActiveCfg = Release|Win32
+		{1E3CA2CC-A3F6-412B-83A4-901A45B85C09}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F88F2374-A9DE-46E7-ABF7-F72E9F468D3F}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 2
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://alfredocos.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = DiskModWD.vcxproj
+		SccLocalPath1 = .
+	EndGlobalSection
+EndGlobal

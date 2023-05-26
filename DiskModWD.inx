@@ -1,0 +1,98 @@
+;
+; DiskModWD.inf
+;
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=DiskDrive
+ClassGuid={4D36E967-E325-11CE-BFC1-08002BE10318}
+Provider=%ManufacturerName%
+CatalogFile=DiskModWD.cat
+DriverVer= ; TODO: set DriverVer in stampinf property pages
+
+[ControlFlags]
+;ExcludeFromSelect = *
+BasicDriverOk=*
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+[SourceDisksNames]
+1 = %DiskName%,,,""
+
+[SourceDisksFiles]
+DiskModWD.sys  = 1,,
+
+;*****************************************
+; Install Section
+;*****************************************
+
+[Manufacturer]
+%ManufacturerName%=Standard,NT$ARCH$
+
+[Standard.NT$ARCH$]
+%DiskModWD.DeviceDesc%=DiskModWD_Device, USBSTOR\DiskWD______Elements_10B8___1012
+
+[DiskModWD_Device.NT]
+Include=disk.inf
+Needs=disk_install.NT
+CopyFiles=Drivers_Dir
+
+[Drivers_Dir]
+DiskModWD.sys
+
+[DiskModWD_Device.NT.HW]
+AddReg = Filter.AddReg
+
+[Filter.AddReg]
+;HKLM,SYSTEM\CurrentControlSet\Control\Class\{4D36E967-E325-11CE-BFC1-08002BE10318},LowerFilters,0x00010008,DiskModWD
+HKR,,"LowerFilters",0x00010000,"DiskModWD"
+
+;-------------- Service installation
+[DiskModWD_Device.NT.Services]
+Include=disk.inf
+Needs=disk_install.NT.Services
+AddService = DiskModWD,, DiskModWD_Service_Inst
+
+; -------------- DiskModWD driver install sections
+[DiskModWD_Service_Inst]
+DisplayName    = %DiskModWD.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 0               ; SERVICE_DEMAND_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+LoadOrderGroup = SCSI Class
+ServiceBinary  = %12%\DiskModWD.sys
+
+;
+;--- DiskModWD_Device Coinstaller installation ------
+;
+
+[DestinationDirs] 
+CoInstaller_CopyFiles = 11 
+
+[DiskModWD_Device.NT.CoInstallers]
+AddReg=CoInstaller_AddReg
+CopyFiles=CoInstaller_CopyFiles
+
+[CoInstaller_CopyFiles]
+WdfCoInstaller$KMDFCOINSTALLERVERSION$.dll,,,0x00000010
+
+[SourceDisksFiles] 
+WdfCoInstaller$KMDFCOINSTALLERVERSION$.dll=1 ; make sure the number matches with SourceDisksNames 
+ 
+[CoInstaller_AddReg] 
+HKR,,CoInstallers32,0x00010000, "WdfCoInstaller$KMDFCOINSTALLERVERSION$.dll,WdfCoInstaller" 
+
+[DiskModWD_Device.NT.Wdf]
+KmdfService =  DiskModWD, DiskModWD_wdfsect
+
+[DiskModWD_wdfsect]
+KmdfLibraryVersion = $KMDFVERSION$
+
+[Strings]
+SPSVCINST_ASSOCSERVICE= 0x00000002
+ManufacturerName="Alfredo Costalago"
+ClassName="DiskDrive"
+DiskName = "DiskModWD Installation Disk"
+DiskModWD.DeviceDesc = "DiskModWD Device"
+DiskModWD.SVCDESC = "DiskModWD Service"
